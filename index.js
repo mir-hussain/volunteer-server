@@ -24,6 +24,7 @@ const uri = `mongodb+srv://${userName}:${password}@cluster0.lfvk2.mongodb.net/${
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 client.connect((err) => {
+  console.log(err);
   const eventCollection = client.db(databaseName).collection("event");
   app.post("/addEvent", (req, res) => {
     const newEvent = req.body;
